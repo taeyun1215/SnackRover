@@ -1,5 +1,6 @@
 package com.example.demo.user.adapter.outbound
 
+import com.example.demo.user.domain.Email
 import com.example.demo.user.domain.User
 import com.example.demo.user.infrastructure.UserRepository
 import com.example.demo.user.usecase.inbound.query.FindUserByEmailQuery
@@ -19,10 +20,9 @@ class UserPersistenceAdapter(
         userRepository.save(userMapper.mapToJpaEntity(user))
     }
 
-    override fun findByEmail(query: FindUserByEmailQuery): User? {
-        return userRepository.findByEmail(query.email)?.let { userEntity ->
-            userMapper.mapToDomainEntity(userEntity)
+    override fun findByEmail(email: Email): User? {
+        return userRepository.findByEmail(email.address)?.let { userJpaEntity ->
+            userMapper.mapToDomainEntity(userJpaEntity)
         }
     }
-
 }
