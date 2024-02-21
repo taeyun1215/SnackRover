@@ -1,11 +1,11 @@
 package com.example.demo.menu
 
-import com.example.demo.foodTruck.FoodTruckJpaEntity
+import com.example.demo.foodTruck.infrastructure.FoodTruckJpaEntity
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "menus")
-data class MenuJpaEntity(
+class MenuJpaEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null, // 메뉴의 고유 식별자입니다.
@@ -16,5 +16,5 @@ data class MenuJpaEntity(
 
     @ManyToOne
     @JoinColumn(name = "food_truck_id")
-    var foodTruckJpaEntity: FoodTruckJpaEntity // 이 메뉴를 제공하는 푸드트럭에 대한 참조입니다.
+    var foodTruck: FoodTruckJpaEntity // 이 메뉴를 제공하는 푸드트럭에 대한 참조입니다.
 )

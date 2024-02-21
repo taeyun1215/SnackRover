@@ -1,14 +1,13 @@
 package com.example.demo.review
 
-import com.example.demo.foodTruck.FoodTruckJpaEntity
-import com.example.demo.user.domain.User
+import com.example.demo.foodTruck.infrastructure.FoodTruckJpaEntity
 import com.example.demo.user.infrastructure.UserJpaEntity
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "reviews")
-data class ReviewJpaEntity(
+class ReviewJpaEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null, // 리뷰의 고유 식별자입니다.
@@ -19,9 +18,9 @@ data class ReviewJpaEntity(
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    var userJpaEntity: UserJpaEntity, // 리뷰를 작성한 사용자에 대한 참조입니다.
+    var user: UserJpaEntity, // 리뷰를 작성한 사용자에 대한 참조입니다.
 
     @ManyToOne
     @JoinColumn(name = "food_truck_id")
-    var foodTruckJpaEntity: FoodTruckJpaEntity // 리뷰 대상 푸드트럭에 대한 참조입니다.
+    var foodTruck: FoodTruckJpaEntity // 리뷰 대상 푸드트럭에 대한 참조입니다.
 )

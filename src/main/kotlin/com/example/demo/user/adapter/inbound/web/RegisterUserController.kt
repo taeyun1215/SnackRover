@@ -19,7 +19,8 @@ class RegisterUserController(private val registerUserService: RegisterUserServic
         val registerUserCommand = RegisterUserCommand(
             username = request.username,
             password = request.password,
-            email = request.email
+            email = request.email,
+            userRole = request.userRole
         )
 
         registerUserService.registerUser(registerUserCommand)

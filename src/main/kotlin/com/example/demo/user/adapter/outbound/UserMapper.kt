@@ -10,12 +10,14 @@ class UserMapper {
     fun mapToDomainEntity(userJpaEntity: UserJpaEntity): User = User(
         name = userJpaEntity.username,
         password = userJpaEntity.password,
-        email = Email(userJpaEntity.email)
+        email = userJpaEntity.email,
+        userRole = userJpaEntity.userRole
     )
 
     fun mapToJpaEntity(user: User): UserJpaEntity = UserJpaEntity(
         username = user.name,
         password = user.password,
-        email = user.email.address
+        email = user.email,
+        userRole = user.userRole
     )
 }

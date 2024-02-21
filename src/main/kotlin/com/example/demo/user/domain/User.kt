@@ -4,7 +4,8 @@ data class User(
     val userId: Long? = null,
     val name: String,
     val password: String,
-    val email: Email
+    val email: Email,
+    val userRole: UserRole
 ) {
     init {
         require(name.isNotBlank()) { "Name cannot be blank" }
