@@ -1,7 +1,8 @@
 package com.example.demo.user.domain
 
 enum class UserRole {
-    OWNER, CUSTOMER;
+    OWNER,
+    CUSTOMER;
 
     companion object {
         fun validationUserRole(value: String): UserRole {

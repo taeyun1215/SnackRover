@@ -1,7 +1,7 @@
 package com.example.demo.user.adapter.inbound.web
 
-import com.example.demo.user.adapter.inbound.dto.RegisterUserRequest
-import com.example.demo.user.adapter.inbound.dto.RegisterUserResponse
+import com.example.demo.user.adapter.inbound.payload.RegisterUserRequest
+import com.example.demo.user.adapter.inbound.payload.RegisterUserResponse
 import com.example.demo.user.usecase.inbound.command.RegisterUserCommand
 import com.example.demo.user.usecase.inbound.service.RegisterUserService
 import org.springframework.http.ResponseEntity

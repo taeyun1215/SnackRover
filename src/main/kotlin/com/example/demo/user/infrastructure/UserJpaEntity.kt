@@ -18,7 +18,7 @@ class UserJpaEntity(
     @Embedded
     var email: Email, // 사용자 이메일 주소입니다.
 
-    @Enumerated(EnumType.STRING) // Enum 값을 문자열로 데이터베이스에 저장
+    @Enumerated(EnumType.STRING)
     var userRole: UserRole, // 사용자 권한입니다.
 
     @OneToOne(cascade = [CascadeType.ALL])
