@@ -23,5 +23,5 @@ class FoodTruckJpaEntity(
 //    var bankAccount: String? = null, // 푸드트럭의 은행 계좌입니다.
 
     @OneToOne(mappedBy = "foodtruck", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    var user: UserJpaEntity? = null,  // 이 푸드트럭의 주인 입니다.
+    var userJpaEntity: UserJpaEntity,  // 이 푸드트럭의 주인 입니다.
 )

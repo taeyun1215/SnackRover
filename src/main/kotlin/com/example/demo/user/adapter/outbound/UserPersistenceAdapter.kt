@@ -8,6 +8,7 @@ import com.example.demo.user.usecase.outbound.LoadUserPort
 import com.example.demo.user.usecase.outbound.SaveUserPort
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Component
+import javax.swing.text.StyledEditorKit.FontFamilyAction
 
 @Component
 @Transactional
@@ -18,6 +19,10 @@ class UserPersistenceAdapter(
 
     override fun saveUser(user: User) {
         userRepository.save(userMapper.mapToJpaEntity(user))
+    }
+
+    override fun findByUserId(userId: Long): User? {
+        TODO("Not yet implemented")
     }
 
     override fun findByEmail(email: Email): User? {

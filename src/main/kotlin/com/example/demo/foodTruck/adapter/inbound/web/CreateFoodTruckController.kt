@@ -18,7 +18,8 @@ class CreateFoodTruckController(private val createFoodTruckService: CreateFoodTr
     fun createFoodTruck(@RequestBody request: CreateFoodTruckRequest): ResponseEntity<CreateFoodTruckResponse> {
         val createFoodTruckCommand = CreateFoodTruckCommand(
             name = request.name,
-            foodType = request.foodType
+            foodType = request.foodType,
+            userId = request.userId
         )
 
         createFoodTruckService.createFoodTruck(createFoodTruckCommand)
