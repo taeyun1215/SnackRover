@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service
 class FindFoodTruckService(
     private val loadFoodTruckPort: LoadFoodTruckPort
 ) {
-    fun findFoodTruckById(findFoodTruckQuery: FindFoodTruckQuery): FoodTruck {
-        return loadFoodTruckPort.loadFoodTruckById(findFoodTruckQuery.foodTruckId)
+    fun findFoodTruckById(query: FindFoodTruckQuery): FoodTruck {
+        return loadFoodTruckPort.loadFoodTruckById(query.foodTruckId)
             ?: throw IllegalArgumentException(
-                "User not found with ID: ${findFoodTruckQuery.foodTruckId}"
+                "User not found with ID: ${query.foodTruckId}"
             );
     }
 }
