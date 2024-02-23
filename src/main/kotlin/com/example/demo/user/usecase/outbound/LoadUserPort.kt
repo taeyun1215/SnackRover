@@ -5,6 +5,6 @@ import com.example.demo.user.domain.User
 import com.example.demo.user.usecase.inbound.query.FindUserByEmailQuery
 
 interface LoadUserPort {
-    fun findByUserId(userId: Long): User?;
-    fun findByEmail(email: Email): User?;
+    fun findByUserId(userId: Long): User?
+    fun findByEmail(email: Email): User?
 }
