@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/foodtrucks")
+@RequestMapping("/food-trucks")
 class MapSearchFoodTruckController(private val mapSearchFoodTruckService: MapSearchFoodTruckService) {
 
     @PostMapping("/search")

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/foodtrucks")
+@RequestMapping("/food-trucks")
 class CreateFoodTruckController(private val createFoodTruckService: CreateFoodTruckService) {
 
     @PostMapping
