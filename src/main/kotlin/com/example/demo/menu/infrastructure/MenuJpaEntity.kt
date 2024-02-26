@@ -1,4 +1,4 @@
-package com.example.demo.menu
+package com.example.demo.menu.infrastructure
 
 import com.example.demo.foodTruck.infrastructure.FoodTruckJpaEntity
 import jakarta.persistence.*

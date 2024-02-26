@@ -7,6 +7,6 @@ data class Review (
     var rating: Int,
     var comment: String,
     var reviewDate: LocalDateTime,
-    var username: String,
+    var userId: Long,
     var foodTruckId: Long
 )

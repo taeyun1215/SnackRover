@@ -1,4 +1,5 @@
 package com.example.demo.review.usecase.inbound.query
 
-class FindReviewQuery {
-}
+data class FindReviewQuery (
+    val foodTruckId: Long
+)
