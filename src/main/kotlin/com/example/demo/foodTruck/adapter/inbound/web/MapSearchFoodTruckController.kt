@@ -28,7 +28,7 @@ class MapSearchFoodTruckController(private val mapSearchFoodTruckService: MapSea
 
         val foodTrucks = mapSearchFoodTruckService.mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery).map { foodTruck ->
             DetailFoodTruckResponse(
-                foodTruckId = foodTruck.id ?: 0L, // 오타 수정: id null 체크 필요한지 확인
+                foodTruckId = foodTruck.id!!, // foodTruck.id가 null이 아니라고 확신할 때 사용
                 name = foodTruck.name,
                 foodType = foodTruck.foodType,
                 operatingStatus = foodTruck.operatingStatus,

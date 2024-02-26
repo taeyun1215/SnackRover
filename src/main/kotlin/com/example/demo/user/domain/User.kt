@@ -2,10 +2,10 @@ package com.example.demo.user.domain
 
 data class User(
     val userId: Long? = null,
-    val name: String,
-    val password: String,
-    val email: Email,
-    val userRole: UserRole
+    var name: String,
+    var password: String,
+    var email: Email,
+    var userRole: UserRole
 ) {
     init {
         require(name.isNotBlank()) { "Name cannot be blank" }
