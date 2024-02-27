@@ -5,19 +5,23 @@ import com.example.demo.foodTruck.infrastructure.FoodTruckRepository
 import com.example.demo.foodTruck.usecase.inbound.query.MapSearchFoodTruckQuery
 import com.example.demo.foodTruck.usecase.outbound.LoadFoodTruckPort
 import com.example.demo.foodTruck.usecase.outbound.SaveFoodTruckPort
+import com.example.demo.foodTruck.usecase.outbound.UpdateFoodTruckPort
+import jakarta.persistence.EntityNotFoundException
 
 class FoodTruckPersistenceAdapter(
     private val foodTruckRepository: FoodTruckRepository,
     private val foodTruckMapper: FoodTruckMapper
-) : SaveFoodTruckPort, LoadFoodTruckPort {
+) : SaveFoodTruckPort, LoadFoodTruckPort, UpdateFoodTruckPort {
 
     override fun saveFoodTruck(foodTruck: FoodTruck) {
         foodTruckRepository.save(foodTruckMapper.mapToJpaEntity(foodTruck))
     }
 
-    override fun loadFoodTruckById(foodTruckId: Long): FoodTruck? {
-        return foodTruckRepository.findById(foodTruckId).orElse(null)?.let { foodTruckJpaEntity ->
+    override fun loadFoodTruckById(foodTruckId: Long): FoodTruck {
+        return foodTruckRepository.findById(foodTruckId).map { foodTruckJpaEntity ->
             foodTruckMapper.mapToDomainEntity(foodTruckJpaEntity)
+        }.orElseThrow {
+            throw EntityNotFoundException("FoodTruck with id $foodTruckId not found")
         }
     }
 
@@ -31,5 +35,10 @@ class FoodTruckPersistenceAdapter(
             foodTruckMapper.mapToDomainEntity(foodTruckJpaEntity)
         }
         return foodTrucks
+    }
+
+    override fun updateFoodTruck(foodTruck: FoodTruck) {
+        val foodTruckJpaEntity = foodTruckMapper.mapToJpaEntityForUpdate(foodTruck)
+        foodTruckRepository.save(foodTruckJpaEntity)
     }
 }

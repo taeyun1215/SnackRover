@@ -1,5 +1,6 @@
 package com.example.demo.review.adapter.inbound.web
 
+import com.example.demo.foodTruck.usecase.inbound.service.IncrementReviewCountService
 import com.example.demo.review.adapter.inbound.payload.CommonReviewResponse
 import com.example.demo.review.adapter.inbound.payload.CreateReviewRequest
 import com.example.demo.review.usecase.inbound.command.CreateReviewCommand
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/reviews")
-class CreateReviewController(private val createReviewService: CreateReviewService) {
-
+class CreateReviewController(
+    private val createReviewService: CreateReviewService,
+    private val incrementReviewCountService: IncrementReviewCountService
+) {
     @PostMapping
     fun createReview(@RequestBody request: CreateReviewRequest): ResponseEntity<CommonReviewResponse> {
         val createReviewCommand = CreateReviewCommand(
@@ -25,6 +28,7 @@ class CreateReviewController(private val createReviewService: CreateReviewServic
         )
 
         createReviewService.createReview(createReviewCommand)
+        incrementReviewCountService.incrementReviewCount(request.foodTruckId)
         return ResponseEntity.ok(CommonReviewResponse("리뷰가 등록되었습니다."))
     }
 }

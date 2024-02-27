@@ -22,4 +22,13 @@ class FoodTruckMapper(
         foodType = foodTruck.foodType,
         userJpaEntity = userMapper.mapToJpaEntity(foodTruck.user)
     )
+
+    fun mapToJpaEntityForUpdate(foodTruck: FoodTruck): FoodTruckJpaEntity = FoodTruckJpaEntity(
+        id = foodTruck.id,
+        name = foodTruck.name,
+        foodType = foodTruck.foodType,
+        operatingStatus = foodTruck.operatingStatus,
+        starRating = foodTruck.starRating,
+        userJpaEntity = userMapper.mapToJpaEntity(foodTruck.user)
+    )
 }
