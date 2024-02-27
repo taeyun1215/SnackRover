@@ -4,7 +4,6 @@ import com.example.demo.foodTruck.domain.FoodTruck
 import com.example.demo.foodTruck.domain.FoodType.Companion.validationFoodType
 import com.example.demo.foodTruck.usecase.inbound.command.CreateFoodTruckCommand
 import com.example.demo.foodTruck.usecase.outbound.SaveFoodTruckPort
-import com.example.demo.user.domain.User
 import com.example.demo.user.usecase.outbound.LoadUserPort
 import org.springframework.stereotype.Service
 

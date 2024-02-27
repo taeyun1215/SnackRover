@@ -12,7 +12,7 @@ class RegisterUserService(private val saveUserPort: SaveUserPort) {
 
     fun registerUser(registerUserCommand: RegisterUserCommand) {
         val user = User(
-            name = registerUserCommand.username,
+            username = registerUserCommand.username,
             password = registerUserCommand.password,
             email = Email(registerUserCommand.email),
             userRole = UserRole.validationUserRole(registerUserCommand.userRole)

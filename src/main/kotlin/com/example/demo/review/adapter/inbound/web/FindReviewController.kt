@@ -18,8 +18,20 @@ class FindReviewController(private val findReviewService: FindReviewService) {
         val findReviewQuery = FindReviewQuery(
             foodTruckId = foodTruckId
         )
+        val findReviews = findReviewService.findReviewsByFoodTruckId(findReviewQuery)
 
-        val reviews = findReviewService.findReviewsByFoodTruckId(findReviewQuery)
-        return ResponseEntity.ok(reviews)
+        val findReviewsResponse = findReviews.map { findReview ->
+            FindReviewsResponse.FindReviewResponse(
+                reviewId = findReview.reviewId,
+                rating = findReview.rating,
+                comment = findReview.comment,
+                reviewDate = findReview.reviewDate,
+                username = findReview.username
+            )
+        }.let {
+            FindReviewsResponse(it)
+        }
+
+        return ResponseEntity.ok(findReviewsResponse)
     }
 }

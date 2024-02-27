@@ -2,13 +2,13 @@ package com.example.demo.user.domain
 
 data class User(
     val userId: Long? = null,
-    var name: String,
+    var username: String,
     var password: String,
     var email: Email,
     var userRole: UserRole
 ) {
     init {
-        require(name.isNotBlank()) { "Name cannot be blank" }
+        require(username.isNotBlank()) { "Name cannot be blank" }
         require(
             password.matches(
                 Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")

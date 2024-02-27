@@ -1,6 +1,6 @@
 package com.example.demo.review.usecase.inbound.service
 
-import com.example.demo.review.domain.Review
+import com.example.demo.review.domain.ReviewWithUsername
 import com.example.demo.review.usecase.inbound.query.FindReviewQuery
 import com.example.demo.review.usecase.outbound.LoadReviewPort
 import org.springframework.stereotype.Service
@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service
 class FindReviewService(
     private val loadReviewPort: LoadReviewPort
 ) {
-    fun findReviewsByFoodTruckId(query: FindReviewQuery): List<Review> {
+    fun findReviewsByFoodTruckId(query: FindReviewQuery): List<ReviewWithUsername> {
         return loadReviewPort.loadReviewsByFoodTruckId(query)
-            ?: throw IllegalArgumentException(
-                "Reviews not found with food truck ID: ${query.foodTruckId}"
-            )
     }
 }
