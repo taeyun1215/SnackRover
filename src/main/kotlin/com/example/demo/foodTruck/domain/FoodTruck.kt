@@ -25,7 +25,7 @@ data class FoodTruck(
         starRating = newRating
     }
 
-    fun addReview() {
+    fun reviewCountUp() {
         // 리뷰가 추가될 때마다 리뷰 개수를 증가시킵니다.
         reviewCount++
     }
