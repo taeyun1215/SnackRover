@@ -1,4 +1,6 @@
 package com.example.demo.menu.infrastructure
 
-interface MenuRepository {
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface MenuRepository : JpaRepository<MenuJpaEntity, Long> {
 }

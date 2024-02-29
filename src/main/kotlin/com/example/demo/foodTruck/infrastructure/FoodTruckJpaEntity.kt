@@ -24,4 +24,7 @@ class FoodTruckJpaEntity(
 
     @OneToOne(mappedBy = "foodtruck", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var userJpaEntity: UserJpaEntity,  // 이 푸드트럭의 주인 입니다.
+
+    var reviewIdList: MutableList<Long> = mutableListOf(), // 이 푸드트럭에 대한 리뷰들의 Id참조 리스트입니다.
+    var menuIdList: MutableList<Long> = mutableListOf() // 이 푸드트럭의 메뉴들의 Id참조 리스트입니다.
 )

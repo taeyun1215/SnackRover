@@ -11,8 +11,5 @@ class FindFoodTruckService(
 ) {
     fun findFoodTruckById(query: FindFoodTruckQuery): FoodTruck {
         return loadFoodTruckPort.loadFoodTruckById(query.foodTruckId)
-            ?: throw IllegalArgumentException(
-                "User not found with ID: ${query.foodTruckId}"
-            );
     }
 }

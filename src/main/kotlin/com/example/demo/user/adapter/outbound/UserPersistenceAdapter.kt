@@ -22,7 +22,7 @@ class UserPersistenceAdapter(
     override fun findByUserId(userId: Long): User {
         return userMapper.mapToDomainEntity(userRepository.findById(userId)
             .orElseThrow {
-                NoSuchElementException("User with id $userId not found")
+                NoSuchElementException("User with foodTruckId $userId not found")
             })
     }
 

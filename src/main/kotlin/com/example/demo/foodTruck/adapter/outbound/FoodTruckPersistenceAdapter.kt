@@ -7,7 +7,9 @@ import com.example.demo.foodTruck.usecase.outbound.LoadFoodTruckPort
 import com.example.demo.foodTruck.usecase.outbound.SaveFoodTruckPort
 import com.example.demo.foodTruck.usecase.outbound.UpdateFoodTruckPort
 import jakarta.persistence.EntityNotFoundException
+import org.springframework.stereotype.Component
 
+@Component
 class FoodTruckPersistenceAdapter(
     private val foodTruckRepository: FoodTruckRepository,
     private val foodTruckMapper: FoodTruckMapper
@@ -21,7 +23,7 @@ class FoodTruckPersistenceAdapter(
         return foodTruckRepository.findById(foodTruckId).map { foodTruckJpaEntity ->
             foodTruckMapper.mapToDomainEntity(foodTruckJpaEntity)
         }.orElseThrow {
-            throw EntityNotFoundException("FoodTruck with id $foodTruckId not found")
+            throw EntityNotFoundException("FoodTruck with foodTruckId $foodTruckId not found")
         }
     }
 

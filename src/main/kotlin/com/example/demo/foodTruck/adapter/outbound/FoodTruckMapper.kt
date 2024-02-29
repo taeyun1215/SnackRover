@@ -8,7 +8,7 @@ class FoodTruckMapper(
     private val userMapper: UserMapper
 ) {
     fun mapToDomainEntity(foodTruckJpaEntity: FoodTruckJpaEntity): FoodTruck = FoodTruck(
-        id = foodTruckJpaEntity.id,
+        foodTruckId = foodTruckJpaEntity.id,
         name = foodTruckJpaEntity.name,
         foodType = foodTruckJpaEntity.foodType,
         operatingStatus = foodTruckJpaEntity.operatingStatus,
@@ -24,7 +24,7 @@ class FoodTruckMapper(
     )
 
     fun mapToJpaEntityForUpdate(foodTruck: FoodTruck): FoodTruckJpaEntity = FoodTruckJpaEntity(
-        id = foodTruck.id,
+        id = foodTruck.foodTruckId,
         name = foodTruck.name,
         foodType = foodTruck.foodType,
         operatingStatus = foodTruck.operatingStatus,

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface FoodTruckRepository :JpaRepository<FoodTruckJpaEntity, Long> {
-    // 지도 범위 내의 푸드트럭을 찾는 쿼리 메서드 예시
+
     @Query("FROM FoodTruckJpaEntity FT " +
             "WHERE FT.latitude " +
             "BETWEEN :southwestLat " +

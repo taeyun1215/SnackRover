@@ -3,7 +3,7 @@ package com.example.demo.foodTruck.domain
 import com.example.demo.user.domain.User
 
 data class FoodTruck(
-    val id: Long? = null,
+    val foodTruckId: Long? = null,
     var name: String,
     var foodType: FoodType,
     var operatingStatus: Boolean,
