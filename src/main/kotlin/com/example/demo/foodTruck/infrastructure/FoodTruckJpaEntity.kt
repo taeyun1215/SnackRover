@@ -17,14 +17,9 @@ class FoodTruckJpaEntity(
     var foodType: FoodType, // 푸드트럭에서 제공하는 음식의 종류를 나타내는 enum 필드
 
     var operatingStatus: Boolean = false, // true: 영업 중, false: 영업 종료
-    var starRating: Float = 0f, // 푸드트럭에 대한 평균 평점입니다.
-    var reviewCount: Int = 0, // 푸드트럭에 대한 리뷰 개수입니다.
 //    var photoUrl: String? = null, // 푸드트럭의 사진 URL입니다.
 //    var bankAccount: String? = null, // 푸드트럭의 은행 계좌입니다.
 
     @OneToOne(mappedBy = "foodtruck", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var userJpaEntity: UserJpaEntity,  // 이 푸드트럭의 주인 입니다.
-
-    var reviewIdList: MutableList<Long> = mutableListOf(), // 이 푸드트럭에 대한 리뷰들의 Id참조 리스트입니다.
-    var menuIdList: MutableList<Long> = mutableListOf() // 이 푸드트럭의 메뉴들의 Id참조 리스트입니다.
 )

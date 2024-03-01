@@ -1,8 +1,8 @@
 package com.example.demo.foodTruck.adapter.inbound.web
 
-import com.example.demo.foodTruck.adapter.inbound.payload.DetailFoodTruckResponse
 import com.example.demo.foodTruck.adapter.inbound.payload.MapSearchFoodTruckRequest
 import com.example.demo.foodTruck.adapter.inbound.payload.MapSearchFoodTrucksResponse
+import com.example.demo.foodTruck.domain.FoodType
 import com.example.demo.foodTruck.usecase.inbound.query.MapSearchFoodTruckQuery
 import com.example.demo.foodTruck.usecase.inbound.service.MapSearchFoodTruckService
 import org.springframework.http.ResponseEntity
@@ -26,17 +26,17 @@ class MapSearchFoodTruckController(private val mapSearchFoodTruckService: MapSea
             mapBoundsSouthwestLongitude = request.mapBoundsSouthwestLongitude,
         )
 
-        val foodTrucks = mapSearchFoodTruckService.mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery).map { foodTruck ->
-            DetailFoodTruckResponse(
-                foodTruckId = foodTruck.foodTruckId!!, // foodTruck.id가 null이 아니라고 확신할 때 사용
-                name = foodTruck.name,
-                foodType = foodTruck.foodType,
-                operatingStatus = foodTruck.operatingStatus,
-                starRating = foodTruck.starRating,
-                reviewCount = foodTruck.reviewCount
+        val mapSearchFoodTrucksResponse = mapSearchFoodTruckService.mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery).map { foodTrucksWithStarRatingAndReviewCountDto ->
+            MapSearchFoodTrucksResponse.MapSearchFoodTruckResponse(
+                foodTruckId = foodTrucksWithStarRatingAndReviewCountDto.foodTruckId,
+                name = foodTrucksWithStarRatingAndReviewCountDto.name,
+                foodType = FoodType.valueOf(foodTrucksWithStarRatingAndReviewCountDto.foodType),
+                operatingStatus = foodTrucksWithStarRatingAndReviewCountDto.operatingStatus,
+                avgStarRating = foodTrucksWithStarRatingAndReviewCountDto.avgStarRating,
+                reviewCount = foodTrucksWithStarRatingAndReviewCountDto.reviewCount
             )
         }
-        val response = MapSearchFoodTrucksResponse(foodTrucks = foodTrucks)
-        return ResponseEntity.ok(response)
+
+        return ResponseEntity.ok(MapSearchFoodTrucksResponse(mapSearchFoodTrucksResponse = mapSearchFoodTrucksResponse))
     }
 }

@@ -7,7 +7,6 @@ data class DetailFoodTruckResponse(
     val name: String,
     val foodType: FoodType,
     var operatingStatus: Boolean,
-    var starRating: Float,
-    var reviewCount: Int,
-    val menus: List<MenuResponse>
+    var avgStarRating: Float,
+    var reviewCount: Long
 )

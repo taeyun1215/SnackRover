@@ -28,7 +28,7 @@ class ReviewPersistenceAdapter(
         return reviews.map { reviewJpaEntity ->
             ReviewWithUsername(
                 reviewId = reviewJpaEntity.id!!,
-                rating = reviewJpaEntity.rating,
+                rating = reviewJpaEntity.starRating,
                 comment = reviewJpaEntity.comment,
                 reviewDate = reviewJpaEntity.reviewDate,
                 username = loadUserPort.findByUserId(reviewJpaEntity.userId).username

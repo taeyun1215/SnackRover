@@ -12,8 +12,6 @@ class FoodTruckMapper(
         name = foodTruckJpaEntity.name,
         foodType = foodTruckJpaEntity.foodType,
         operatingStatus = foodTruckJpaEntity.operatingStatus,
-        starRating = foodTruckJpaEntity.starRating,
-        reviewCount = foodTruckJpaEntity.reviewCount,
         user = userMapper.mapToDomainEntity(foodTruckJpaEntity.userJpaEntity)
     )
 
@@ -28,7 +26,6 @@ class FoodTruckMapper(
         name = foodTruck.name,
         foodType = foodTruck.foodType,
         operatingStatus = foodTruck.operatingStatus,
-        starRating = foodTruck.starRating,
         userJpaEntity = userMapper.mapToJpaEntity(foodTruck.user)
     )
 }

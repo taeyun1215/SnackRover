@@ -1,6 +1,7 @@
 package com.example.demo.foodTruck.adapter.inbound.web
 
 import com.example.demo.foodTruck.adapter.inbound.payload.DetailFoodTruckResponse
+import com.example.demo.foodTruck.domain.FoodType
 import com.example.demo.foodTruck.usecase.inbound.query.FindFoodTruckQuery
 import com.example.demo.foodTruck.usecase.inbound.service.FindFoodTruckService
 import org.springframework.http.ResponseEntity
@@ -19,16 +20,17 @@ class FindFoodTruckController(private val findFoodTruckService: FindFoodTruckSer
             foodTruckId = foodTruckId
         )
 
-        val foodTruckDetail = findFoodTruckService.findFoodTruckById(findFoodTruckQuery)
-        return ResponseEntity.ok(foodTruckDetail.foodTruckId?.let {
-            DetailFoodTruckResponse(
-                foodTruckId = it,
-                name = foodTruckDetail.name,
-                foodType = foodTruckDetail.foodType,
-                operatingStatus = foodTruckDetail.operatingStatus,
-                starRating = foodTruckDetail.starRating,
-                reviewCount = foodTruckDetail.reviewCount
+        findFoodTruckService.findFoodTruckById(findFoodTruckQuery).let { foodTruckWithAvgStarRatingAndReviewCountDto ->
+            return ResponseEntity.ok(
+                DetailFoodTruckResponse(
+                    foodTruckId = foodTruckWithAvgStarRatingAndReviewCountDto.foodTruckId,
+                    name = foodTruckWithAvgStarRatingAndReviewCountDto.name,
+                    foodType = FoodType.valueOf(foodTruckWithAvgStarRatingAndReviewCountDto.foodType),
+                    operatingStatus = foodTruckWithAvgStarRatingAndReviewCountDto.operatingStatus,
+                    avgStarRating = foodTruckWithAvgStarRatingAndReviewCountDto.avgStarRating,
+                    reviewCount = foodTruckWithAvgStarRatingAndReviewCountDto.reviewCount
+                )
             )
-        })
+        }
     }
 }

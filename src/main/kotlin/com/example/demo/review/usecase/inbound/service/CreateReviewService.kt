@@ -10,7 +10,7 @@ class CreateReviewService(
 ) {
     fun createReview(command: CreateReviewCommand) {
         val review = Review(
-            rating = command.rating,
+            starRating = command.rating,
             comment = command.comment,
             reviewDate = LocalDateTime.now(),
             userId = command.userId,

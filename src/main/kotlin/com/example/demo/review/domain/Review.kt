@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 data class Review (
     val reviewId: Long? = null,
-    var rating: Int,
+    var starRating: Int,
     var comment: String,
     var reviewDate: LocalDateTime,
     var userId: Long,

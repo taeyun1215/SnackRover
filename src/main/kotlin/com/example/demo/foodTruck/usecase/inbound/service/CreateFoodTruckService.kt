@@ -14,16 +14,11 @@ class CreateFoodTruckService(
 ) {
     fun createFoodTruck(command: CreateFoodTruckCommand) {
         val user = loadUserPort.findByUserId(command.userId)
-            ?: throw IllegalArgumentException(
-                "User not found with ID: ${command.userId}"
-            )
 
         val foodTruck = FoodTruck(
             name = command.name,
             foodType = validationFoodType(command.foodType),
             operatingStatus = false,
-            starRating = 0f,
-            reviewCount = 0,
             user = user
         )
 

@@ -11,8 +11,6 @@ class IncrementReviewCountService(
 ) {
     fun incrementReviewCount(foodTruckId: Long) {
         val foodTruck = loadFoodTruckPort.loadFoodTruckById(foodTruckId)
-        foodTruck.reviewCountUp()
-
         updateFoodTruckPort.updateFoodTruck(foodTruck)
     }
 }
