@@ -1,4 +1,5 @@
 package com.example.demo.menu.usecase.inbound.query
 
-class FindMenuQuery {
-}
+data class FindMenuQuery(
+    val menuId: Long
+)

@@ -1,6 +1,6 @@
 package com.example.demo.foodTruck.adapter.outbound
 
-import com.example.demo.foodTruck.adapter.outbound.dto.FoodTruckWithAvgStarRatingAndReviewCountDto
+import com.example.demo.foodTruck.domain.FoodTruckWithAvgStarRatingAndReviewCount
 import com.example.demo.foodTruck.domain.FoodTruck
 import com.example.demo.foodTruck.infrastructure.FoodTruckRepository
 import com.example.demo.foodTruck.usecase.inbound.query.MapSearchFoodTruckQuery
@@ -9,7 +9,6 @@ import com.example.demo.foodTruck.usecase.outbound.SaveFoodTruckPort
 import com.example.demo.foodTruck.usecase.outbound.UpdateFoodTruckPort
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Component
-import java.util.*
 
 @Component
 class FoodTruckPersistenceAdapter(
@@ -21,14 +20,14 @@ class FoodTruckPersistenceAdapter(
         foodTruckRepository.save(foodTruckMapper.mapToJpaEntity(foodTruck))
     }
 
-    override fun loadFoodTruckById(foodTruckId: Long): FoodTruckWithAvgStarRatingAndReviewCountDto {
+    override fun loadFoodTruckById(foodTruckId: Long): FoodTruckWithAvgStarRatingAndReviewCount {
         return foodTruckRepository.findFoodTruckWithAvgStarRatingAndReviewCountById(foodTruckId)
             .orElseThrow {
                 EntityNotFoundException("FoodTruck not found with id: $foodTruckId")
             }
     }
 
-    override fun mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery: MapSearchFoodTruckQuery): List<FoodTruckWithAvgStarRatingAndReviewCountDto> {
+    override fun mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery: MapSearchFoodTruckQuery): List<FoodTruckWithAvgStarRatingAndReviewCount> {
         return foodTruckRepository.mapSearchFoodTrucksWithinMapBounds(
             mapSearchFoodTruckQuery.mapBoundsNortheastLatitude,
             mapSearchFoodTruckQuery.mapBoundsNortheastLongitude,

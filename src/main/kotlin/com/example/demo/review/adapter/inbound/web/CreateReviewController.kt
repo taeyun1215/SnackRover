@@ -1,6 +1,5 @@
 package com.example.demo.review.adapter.inbound.web
 
-import com.example.demo.foodTruck.usecase.inbound.service.IncrementReviewCountService
 import com.example.demo.review.adapter.inbound.payload.CommonReviewResponse
 import com.example.demo.review.adapter.inbound.payload.CreateReviewRequest
 import com.example.demo.review.usecase.inbound.command.CreateReviewCommand

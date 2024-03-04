@@ -1,6 +1,6 @@
-package com.example.demo.foodTruck.adapter.outbound.dto
+package com.example.demo.foodTruck.domain
 
-data class FoodTruckWithAvgStarRatingAndReviewCountDto(
+data class FoodTruckWithAvgStarRatingAndReviewCount(
     val foodTruckId: Long,
     val name: String,
     val foodType: String,
