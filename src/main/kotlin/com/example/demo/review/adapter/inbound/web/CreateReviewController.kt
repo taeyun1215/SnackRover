@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/reviews")
 class CreateReviewController(
-    private val createReviewService: CreateReviewService,
-    private val incrementReviewCountService: IncrementReviewCountService
+    private val createReviewService: CreateReviewService
 ) {
     @PostMapping
     fun createReview(@RequestBody request: CreateReviewRequest): ResponseEntity<CommonReviewResponse> {
@@ -27,7 +26,6 @@ class CreateReviewController(
         )
 
         createReviewService.createReview(createReviewCommand)
-        incrementReviewCountService.incrementReviewCount(request.foodTruckId)
         return ResponseEntity.ok(CommonReviewResponse("리뷰가 등록되었습니다."))
     }
 }
