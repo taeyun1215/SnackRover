@@ -22,17 +22,9 @@ class ReviewPersistenceAdapter(
         reviewRepository.save(reviewMapper.mapToJpaEntity(review))
     }
 
-    override fun loadReviewsByFoodTruckId(query: FindReviewQuery): List<ReviewWithUsername> {
-        val reviews = reviewRepository.findByFoodTruckId(query.foodTruckId) ?: return emptyList()
-
-        return reviews.map { reviewJpaEntity ->
-            ReviewWithUsername(
-                reviewId = reviewJpaEntity.id!!,
-                rating = reviewJpaEntity.starRating,
-                comment = reviewJpaEntity.comment,
-                reviewDate = reviewJpaEntity.reviewDate,
-                username = loadUserPort.findByUserId(reviewJpaEntity.userId).username
-            )
-        }
+    override fun loadReviewsByFoodTruckId(query: FindReviewQuery): List<Review> {
+        reviewRepository.findByFoodTruckId(query.foodTruckId)?.let {
+            return reviewMapper.mapToDomainEntites(it)
+        } ?: return emptyList()
     }
 }

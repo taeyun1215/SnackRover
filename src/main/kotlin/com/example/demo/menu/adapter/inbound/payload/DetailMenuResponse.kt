@@ -4,6 +4,5 @@ data class DetailMenuResponse(
     val menuId: Long,
     val name: String,
     val description: String,
-    val price: Float,
-    val foodTruckId: Long
+    val price: Float
 )

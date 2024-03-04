@@ -25,8 +25,7 @@ class FindMenuController(private val findMenuService: FindMenuService) {
                     menuId = menu.menuId!!,
                     name = menu.name,
                     description = menu.description,
-                    price = menu.price,
-                    foodTruckId = menu.foodTruckId
+                    price = menu.price
                 )
             )
         }

@@ -24,4 +24,17 @@ class ReviewMapper(private val userMapper: UserMapper) {
         userId = review.userId,
         foodTruckId = review.foodTruckId
     )
+
+    fun mapToDomainEntites(reviewJpaEntities: List<ReviewJpaEntity>): List<Review> {
+        return reviewJpaEntities.map { reviewJpaEntity ->
+            Review(
+                reviewId = reviewJpaEntity.id,
+                starRating = reviewJpaEntity.starRating,
+                comment = reviewJpaEntity.comment,
+                reviewDate = reviewJpaEntity.reviewDate,
+                userId = reviewJpaEntity.userId,
+                foodTruckId = reviewJpaEntity.foodTruckId
+            )
+        }
+    }
 }
