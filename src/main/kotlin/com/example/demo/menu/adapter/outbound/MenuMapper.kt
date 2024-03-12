@@ -2,7 +2,9 @@ package com.example.demo.menu.adapter.outbound
 
 import com.example.demo.menu.domain.Menu
 import com.example.demo.menu.infrastructure.MenuJpaEntity
+import org.springframework.stereotype.Component
 
+@Component
 class MenuMapper {
     fun mapToDomainEntity(menuJpaEntity: MenuJpaEntity): Menu = Menu(
         menuId = menuJpaEntity.id,

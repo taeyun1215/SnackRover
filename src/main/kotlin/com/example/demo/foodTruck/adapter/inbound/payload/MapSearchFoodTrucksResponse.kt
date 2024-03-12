@@ -10,7 +10,7 @@ data class MapSearchFoodTrucksResponse(
         val name: String,
         val foodType: FoodType,
         var operatingStatus: Boolean,
-        var avgStarRating: Float,
+        var avgStarRating: Double,
         var reviewCount: Long
     )
 }

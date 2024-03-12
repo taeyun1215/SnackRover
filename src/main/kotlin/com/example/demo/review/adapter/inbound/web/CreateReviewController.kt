@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-
 @RestController
 @RequestMapping("/reviews")
 class CreateReviewController(
@@ -26,6 +25,7 @@ class CreateReviewController(
         )
 
         createReviewService.createReview(createReviewCommand)
+
         return ResponseEntity.ok(CommonReviewResponse("리뷰가 등록되었습니다."))
     }
 }

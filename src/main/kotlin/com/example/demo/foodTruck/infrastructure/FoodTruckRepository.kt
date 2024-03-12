@@ -11,23 +11,24 @@ import java.util.*
 interface FoodTruckRepository :JpaRepository<FoodTruckJpaEntity, Long> {
 
     @Query("SELECT new com.example.demo.foodTruck.domain.FoodTruckWithAvgStarRatingAndReviewCount(" +
-            "f.id, f.name, f.foodType.name, f.operatingStatus, AVG(r.avgStarRating), COUNT(r.id)) " +
+            "f.id, f.name, f.foodType.toString(), f.operatingStatus, COALESCE(AVG(r.starRating), 0), COUNT(r)) " +
             "FROM FoodTruckJpaEntity f " +
             "LEFT JOIN ReviewJpaEntity r ON f.id = r.foodTruckId " +
             "WHERE f.id = :foodTruckId " +
-            "GROUP BY f.id"
-    ) fun findFoodTruckWithAvgStarRatingAndReviewCountById(
+            "GROUP BY f.id, f.name, f.foodType, f.operatingStatus")
+    fun findFoodTruckWithAvgStarRatingAndReviewCountById(
         @Param("foodTruckId") foodTruckId: Long
     ): Optional<FoodTruckWithAvgStarRatingAndReviewCount>
 
     @Query("SELECT new com.example.demo.foodTruck.domain.FoodTruckWithAvgStarRatingAndReviewCount(" +
-            "f.id, f.name, f.foodType, f.operatingStatus, f.avgStarRating, COUNT(r.id)) " +
+            "f.id, f.name, f.foodType.toString(), f.operatingStatus, COALESCE(AVG(r.starRating), 0), COUNT(r)) " +
             "FROM FoodTruckJpaEntity f " +
+            "LEFT JOIN LocationLog l ON f.id = l.foodTruckId " +
             "LEFT JOIN ReviewJpaEntity r ON f.id = r.foodTruckId " +
-            "WHERE f.latitude BETWEEN :southwestLat AND :northeastLat " +
-            "AND f.longitude BETWEEN :southwestLng AND :northeastLng " +
-            "GROUP BY f.id"
-    ) fun mapSearchFoodTrucksWithinMapBounds(
+            "WHERE l.latitude BETWEEN :southwestLat AND :northeastLat " +
+            "AND l.longitude BETWEEN :southwestLng AND :northeastLng " +
+            "GROUP BY f.id, f.name, f.foodType, f.operatingStatus")
+    fun mapSearchFoodTrucksWithinMapBounds(
         @Param("northeastLat") northeastLat: Double,
         @Param("northeastLng") northeastLng: Double,
         @Param("southwestLat") southwestLat: Double,

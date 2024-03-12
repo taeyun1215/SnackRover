@@ -3,7 +3,9 @@ package com.example.demo.foodTruck.adapter.outbound
 import com.example.demo.foodTruck.domain.FoodTruck
 import com.example.demo.foodTruck.infrastructure.FoodTruckJpaEntity
 import com.example.demo.user.adapter.outbound.UserMapper
+import org.springframework.stereotype.Component
 
+@Component
 class FoodTruckMapper(
     private val userMapper: UserMapper
 ) {

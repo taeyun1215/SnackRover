@@ -5,6 +5,6 @@ data class FoodTruckWithAvgStarRatingAndReviewCount(
     val name: String,
     val foodType: String,
     val operatingStatus: Boolean,
-    val avgStarRating: Float,
+    val avgStarRating: Double,
     val reviewCount: Long
 )

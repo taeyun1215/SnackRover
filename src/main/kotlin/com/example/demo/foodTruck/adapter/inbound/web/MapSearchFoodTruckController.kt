@@ -26,14 +26,14 @@ class MapSearchFoodTruckController(private val mapSearchFoodTruckService: MapSea
             mapBoundsSouthwestLongitude = request.mapBoundsSouthwestLongitude,
         )
 
-        val mapSearchFoodTrucksResponse = mapSearchFoodTruckService.mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery).map { foodTrucksWithStarRatingAndReviewCountDto ->
+        val mapSearchFoodTrucksResponse = mapSearchFoodTruckService.mapSearchFoodTrucksWithinMapBounds(mapSearchFoodTruckQuery).map { foodTrucksWithStarRatingAndReviewCount ->
             MapSearchFoodTrucksResponse.MapSearchFoodTruckResponse(
-                foodTruckId = foodTrucksWithStarRatingAndReviewCountDto.foodTruckId,
-                name = foodTrucksWithStarRatingAndReviewCountDto.name,
-                foodType = FoodType.valueOf(foodTrucksWithStarRatingAndReviewCountDto.foodType),
-                operatingStatus = foodTrucksWithStarRatingAndReviewCountDto.operatingStatus,
-                avgStarRating = foodTrucksWithStarRatingAndReviewCountDto.avgStarRating,
-                reviewCount = foodTrucksWithStarRatingAndReviewCountDto.reviewCount
+                foodTruckId = foodTrucksWithStarRatingAndReviewCount.foodTruckId,
+                name = foodTrucksWithStarRatingAndReviewCount.name,
+                foodType = FoodType.valueOf(foodTrucksWithStarRatingAndReviewCount.foodType),
+                operatingStatus = foodTrucksWithStarRatingAndReviewCount.operatingStatus,
+                avgStarRating = foodTrucksWithStarRatingAndReviewCount.avgStarRating,
+                reviewCount = foodTrucksWithStarRatingAndReviewCount.reviewCount
             )
         }
 
