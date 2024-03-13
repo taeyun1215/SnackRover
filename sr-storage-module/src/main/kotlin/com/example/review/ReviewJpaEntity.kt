@@ -1,4 +1,4 @@
-package com.example.demo.review.infrastructure
+package com.example.review
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

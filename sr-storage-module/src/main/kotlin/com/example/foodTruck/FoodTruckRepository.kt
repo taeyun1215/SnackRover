@@ -1,4 +1,4 @@
-package com.example.demo.foodTruck.infrastructure
+package com.example.foodTruck
 
 import com.example.demo.foodTruck.domain.FoodTruckWithAvgStarRatingAndReviewCount
 import org.springframework.data.jpa.repository.JpaRepository

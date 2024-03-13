@@ -1,4 +1,4 @@
-package com.example.demo.foodTruck.infrastructure
+package com.example.foodTruck
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

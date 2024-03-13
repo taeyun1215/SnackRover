@@ -1,4 +1,4 @@
-package com.example.demo.menu.infrastructure
+package com.example.menu
 
 import jakarta.persistence.*
 

@@ -1,4 +1,4 @@
-package com.example.demo.foodTruck.infrastructure
+package com.example.foodTruck
 
 import com.example.demo.foodTruck.domain.FoodType
 import com.example.demo.user.infrastructure.UserJpaEntity

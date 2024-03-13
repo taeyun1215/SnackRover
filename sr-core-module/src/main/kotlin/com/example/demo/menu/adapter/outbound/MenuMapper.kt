@@ -1,7 +1,7 @@
 package com.example.demo.menu.adapter.outbound
 
 import com.example.demo.menu.domain.Menu
-import com.example.demo.menu.infrastructure.MenuJpaEntity
+import com.example.menu.MenuJpaEntity
 import org.springframework.stereotype.Component
 
 @Component

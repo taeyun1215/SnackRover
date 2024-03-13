@@ -36,9 +36,6 @@ subprojects {
 
 		runtimeOnly("com.h2database:h2")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-		// mariadb
-		implementation("org.mariadb.jdbc:mariadb-java-client")
 	}
 
 	tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
