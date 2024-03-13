@@ -1,5 +1,6 @@
-package com.example.foodTruck
+package com.example.entity.foodTruck
 
+import com.example.foodTruck.FoodTruckWithAvgStarRatingAndReviewCount
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
@@ -9,7 +10,7 @@ import java.util.*
 @Repository
 interface FoodTruckRepository :JpaRepository<FoodTruckJpaEntity, Long> {
 
-    @Query("SELECT new FoodTruckWithAvgStarRatingAndReviewCount(" +
+    @Query("SELECT new com.example.foodTruck.FoodTruckWithAvgStarRatingAndReviewCount(" +
             "f.id, f.name, f.foodType.toString(), f.operatingStatus, COALESCE(AVG(r.starRating), 0), COUNT(r)) " +
             "FROM FoodTruckJpaEntity f " +
             "LEFT JOIN ReviewJpaEntity r ON f.id = r.foodTruckId " +
@@ -19,7 +20,7 @@ interface FoodTruckRepository :JpaRepository<FoodTruckJpaEntity, Long> {
         @Param("foodTruckId") foodTruckId: Long
     ): Optional<FoodTruckWithAvgStarRatingAndReviewCount>
 
-    @Query("SELECT new FoodTruckWithAvgStarRatingAndReviewCount(" +
+    @Query("SELECT new com.example.foodTruck.FoodTruckWithAvgStarRatingAndReviewCount(" +
             "f.id, f.name, f.foodType.toString(), f.operatingStatus, COALESCE(AVG(r.starRating), 0), COUNT(r)) " +
             "FROM FoodTruckJpaEntity f " +
             "LEFT JOIN LocationLog l ON f.id = l.foodTruckId " +

@@ -1,7 +1,7 @@
 package com.example.demo.review.adapter.outbound
 
 import com.example.demo.review.domain.Review
-import com.example.review.ReviewRepository
+import com.example.entity.review.ReviewRepository
 import com.example.demo.review.usecase.inbound.query.FindReviewQuery
 import com.example.demo.review.usecase.outbound.LoadReviewPort
 import com.example.demo.review.usecase.outbound.SaveReviewPort

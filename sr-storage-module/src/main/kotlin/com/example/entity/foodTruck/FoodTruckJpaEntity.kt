@@ -1,6 +1,7 @@
-package com.example.foodTruck
+package com.example.entity.foodTruck
 
-import com.example.user.UserJpaEntity
+import com.example.foodTruck.FoodType
+import com.example.entity.user.UserJpaEntity
 import jakarta.persistence.*
 
 @Entity

@@ -1,7 +1,7 @@
 package com.example.demo.menu.adapter.outbound
 
 import com.example.demo.menu.domain.Menu
-import com.example.menu.MenuRepository
+import com.example.entity.menu.MenuRepository
 import com.example.demo.menu.usecase.outbound.LoadMenuPort
 import com.example.demo.menu.usecase.outbound.SaveMenuPort
 import jakarta.persistence.EntityNotFoundException

@@ -1,7 +1,7 @@
 package com.example.demo.review.adapter.outbound
 
 import com.example.demo.review.domain.Review
-import com.example.review.ReviewJpaEntity
+import com.example.entity.review.ReviewJpaEntity
 import com.example.demo.user.adapter.outbound.UserMapper
 import org.springframework.stereotype.Component
 

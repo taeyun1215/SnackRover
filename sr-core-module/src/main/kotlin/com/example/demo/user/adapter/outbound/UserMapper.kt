@@ -1,7 +1,7 @@
 package com.example.demo.user.adapter.outbound
 
 import com.example.demo.user.domain.User
-import com.example.user.UserJpaEntity
+import com.example.entity.user.UserJpaEntity
 import org.springframework.stereotype.Component
 
 @Component

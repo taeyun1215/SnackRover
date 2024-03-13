@@ -1,7 +1,7 @@
 package com.example.demo.user.adapter.outbound
 
 import com.example.demo.user.domain.User
-import com.example.user.UserRepository
+import com.example.entity.user.UserRepository
 import com.example.demo.user.usecase.outbound.LoadUserPort
 import com.example.demo.user.usecase.outbound.SaveUserPort
 import com.example.user.Email
