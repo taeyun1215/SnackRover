@@ -5,7 +5,8 @@ allOpen {
 }
 
 dependencies {
+    implementation(project(":sr-common-module"))
+
     api("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("com.mysql:mysql-connector-j")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 }

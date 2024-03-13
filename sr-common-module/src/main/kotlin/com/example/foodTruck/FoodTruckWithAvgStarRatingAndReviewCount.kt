@@ -1,4 +1,4 @@
-package com.example.demo.foodTruck.domain
+package com.example.foodTruck
 
 data class FoodTruckWithAvgStarRatingAndReviewCount(
     val foodTruckId: Long,

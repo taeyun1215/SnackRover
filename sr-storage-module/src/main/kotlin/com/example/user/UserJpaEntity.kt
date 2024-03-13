@@ -1,8 +1,6 @@
-package com.example.demo.user.infrastructure
+package com.example.user
 
 import com.example.foodTruck.FoodTruckJpaEntity
-import com.example.demo.user.domain.Email
-import com.example.demo.user.domain.UserRole
 import jakarta.persistence.*
 
 @Entity

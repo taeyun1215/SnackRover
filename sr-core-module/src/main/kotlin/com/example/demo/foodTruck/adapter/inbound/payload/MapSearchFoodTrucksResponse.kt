@@ -1,6 +1,6 @@
 package com.example.demo.foodTruck.adapter.inbound.payload
 
-import com.example.demo.foodTruck.domain.FoodType
+import com.example.foodTruck.FoodType
 
 data class MapSearchFoodTrucksResponse(
     val mapSearchFoodTrucksResponse: List<MapSearchFoodTruckResponse>

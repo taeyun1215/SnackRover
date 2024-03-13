@@ -2,9 +2,9 @@ package com.example.demo.foodTruck.adapter.inbound.web
 
 import com.example.demo.foodTruck.adapter.inbound.payload.MapSearchFoodTruckRequest
 import com.example.demo.foodTruck.adapter.inbound.payload.MapSearchFoodTrucksResponse
-import com.example.demo.foodTruck.domain.FoodType
 import com.example.demo.foodTruck.usecase.inbound.query.MapSearchFoodTruckQuery
 import com.example.demo.foodTruck.usecase.inbound.service.MapSearchFoodTruckService
+import com.example.foodTruck.FoodType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

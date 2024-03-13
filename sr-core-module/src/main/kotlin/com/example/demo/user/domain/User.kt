@@ -1,5 +1,8 @@
 package com.example.demo.user.domain
 
+import com.example.user.Email
+import com.example.user.UserRole
+
 data class User(
     val userId: Long? = null,
     var username: String,

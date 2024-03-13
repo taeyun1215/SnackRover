@@ -1,6 +1,5 @@
 package com.example.foodTruck
 
-import com.example.demo.foodTruck.domain.FoodTruckWithAvgStarRatingAndReviewCount
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param

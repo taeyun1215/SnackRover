@@ -1,10 +1,10 @@
 package com.example.demo.foodTruck.usecase.inbound.service
 
 import com.example.demo.foodTruck.domain.FoodTruck
-import com.example.demo.foodTruck.domain.FoodType.Companion.validationFoodType
 import com.example.demo.foodTruck.usecase.inbound.command.CreateFoodTruckCommand
 import com.example.demo.foodTruck.usecase.outbound.SaveFoodTruckPort
 import com.example.demo.user.usecase.outbound.LoadUserPort
+import com.example.foodTruck.FoodType.Companion.validationFoodType
 import org.springframework.stereotype.Service
 
 @Service

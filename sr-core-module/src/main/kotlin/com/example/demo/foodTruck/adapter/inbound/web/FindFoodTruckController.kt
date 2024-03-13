@@ -1,9 +1,9 @@
 package com.example.demo.foodTruck.adapter.inbound.web
 
 import com.example.demo.foodTruck.adapter.inbound.payload.DetailFoodTruckResponse
-import com.example.demo.foodTruck.domain.FoodType
 import com.example.demo.foodTruck.usecase.inbound.query.FindFoodTruckQuery
 import com.example.demo.foodTruck.usecase.inbound.service.FindFoodTruckService
+import com.example.foodTruck.FoodType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

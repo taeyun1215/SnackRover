@@ -1,9 +1,9 @@
 package com.example.demo.user.usecase.inbound.service
 
-import com.example.demo.user.domain.Email
 import com.example.demo.user.domain.User
 import com.example.demo.user.usecase.inbound.query.FindUserByEmailQuery
 import com.example.demo.user.usecase.outbound.LoadUserPort
+import com.example.user.Email
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
 

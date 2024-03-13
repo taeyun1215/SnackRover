@@ -1,4 +1,4 @@
-package com.example.demo.user.domain
+package com.example.user
 
 enum class UserRole {
     OWNER,

@@ -7,6 +7,7 @@ tasks.getByName("jar") {
 }
 
 dependencies {
+    implementation(project(":sr-common-module"))
     implementation(project(":sr-support-module:monitoring"))
     implementation(project(":sr-support-module:logging"))
     implementation(project(":sr-storage-module"))

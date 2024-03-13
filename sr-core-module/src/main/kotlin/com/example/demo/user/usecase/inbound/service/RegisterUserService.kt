@@ -1,10 +1,10 @@
 package com.example.demo.user.usecase.inbound.service
 
-import com.example.demo.user.domain.Email
 import com.example.demo.user.domain.User
-import com.example.demo.user.domain.UserRole
 import com.example.demo.user.usecase.inbound.command.RegisterUserCommand
 import com.example.demo.user.usecase.outbound.SaveUserPort
+import com.example.user.Email
+import com.example.user.UserRole
 import org.springframework.stereotype.Service
 
 @Service

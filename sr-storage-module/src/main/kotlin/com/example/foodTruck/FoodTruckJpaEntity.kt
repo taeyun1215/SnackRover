@@ -1,7 +1,6 @@
 package com.example.foodTruck
 
-import com.example.demo.foodTruck.domain.FoodType
-import com.example.demo.user.infrastructure.UserJpaEntity
+import com.example.user.UserJpaEntity
 import jakarta.persistence.*
 
 @Entity

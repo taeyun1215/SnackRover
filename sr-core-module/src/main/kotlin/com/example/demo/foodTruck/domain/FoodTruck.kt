@@ -1,6 +1,7 @@
 package com.example.demo.foodTruck.domain
 
 import com.example.demo.user.domain.User
+import com.example.foodTruck.FoodType
 
 data class FoodTruck(
     val foodTruckId: Long? = null,

@@ -1,4 +1,4 @@
-package com.example.demo.foodTruck.domain
+package com.example.foodTruck
 
 enum class FoodType {
     KOREAN, // 한식
