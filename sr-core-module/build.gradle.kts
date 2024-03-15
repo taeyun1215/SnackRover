@@ -11,7 +11,6 @@ dependencies {
     implementation(project(":sr-support-module:monitoring"))
     implementation(project(":sr-support-module:logging"))
     implementation(project(":sr-storage-module"))
-    testImplementation(project(":sr-test-module"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
 }
