@@ -1,38 +1,39 @@
 package com.example
 
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import com.example.entity.restArea.RestAreaJpaEntity
 import com.example.entity.restArea.RestAreaRepository
-import org.springframework.batch.core.Job
-import org.springframework.batch.core.Step
+import com.sun.org.apache.xerces.internal.impl.xpath.XPath
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing
-import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
-import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
-import org.springframework.batch.core.launch.support.RunIdIncrementer
+import org.springframework.batch.core.job.builder.JobBuilder
+import org.springframework.batch.core.launch.JobLauncher
+import org.springframework.batch.core.repository.JobRepository
+import org.springframework.batch.core.step.builder.StepBuilder
 import org.springframework.batch.item.ItemProcessor
 import org.springframework.batch.item.ItemReader
 import org.springframework.batch.item.ItemWriter
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import org.springframework.boot.autoconfigure.batch.BatchProperties
 
 @Configuration
 @EnableBatchProcessing
 class BatchJobConfig(
-    private val jobBuilderFactory: JobBuilderFactory,
-    private val stepBuilderFactory: StepBuilderFactory,
+    private val jobLauncher: JobLauncher,
+    private val jobRepository: JobRepository,
     private val restAreaRepository: RestAreaRepository
 ) {
     @Bean
-    fun restAreaJob(): Job {
-        return jobBuilderFactory.get("restAreaJob")
-            .incrementer(RunIdIncrementer())
-            .start(restAreaStep())
+    fun restAreaJob(): BatchProperties.Job {
+        val restAreaStep = restAreaStep()
+        return JobBuilder("restAreaJob", jobRepository)
+            .start(restAreaStep)
             .build()
     }
 
     @Bean
-    fun restAreaStep(): Step {
-        return stepBuilderFactory.get("restAreaStep")
-            .chunk<RestAreaItemReader.ApiRestArea, RestAreaJpaEntity>(10)
+    fun restAreaStep(): XPath.Step {
+        return StepBuilder("restAreaStep", jobRepository)
+            .chunk<RestAreaItemReader.ApiRestArea, RestAreaJpaEntity>(10, jobRepository)
             .reader(restAreaReader())
             .processor(restAreaProcessor())
             .writer(restAreaWriter())
